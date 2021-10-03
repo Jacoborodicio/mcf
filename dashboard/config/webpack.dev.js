@@ -6,17 +6,17 @@ const packageJson = require('../package.json');
 const devConfig = {
   mode: 'development',
   devServer: {
-      port: 8081,
+      port: 8082,
       historyApiFallback: {
           index: 'index.html'
       }
   },
     plugins: [
         new ModuleFederationPlugin({
-            name: 'marketing',
+            name: 'dashboard',
             filename: 'remoteEntry.js',
             exposes: {
-                './marketingApp': './src/bootstrap'
+                './dashboardApp': './src/bootstrap'
             },
             shared: packageJson.dependencies
         }),
