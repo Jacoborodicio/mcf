@@ -4,7 +4,7 @@ export default () => {
     return (
         <div>
             <div>
-                <h2>This is part of container (main)</h2>
+                <h2>Hi! This is part of container (main)</h2>
             </div>
             <hr/>
             <div>
