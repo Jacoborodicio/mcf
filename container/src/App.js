@@ -1,11 +1,14 @@
 /** @jsx jsx **/
-import React from 'react';
-import MarketingApp from "./components/external/MarketingApp";
-import DashboardApp from "./components/external/DashboardApp";
+import React, {lazy, Suspense} from 'react';
+//import MarketingApp from "./components/external/MarketingApp";
+//import DashboardApp from "./components/external/DashboardApp";
 import NavBar from "./components/internal/NavBar/NavBar";
 import {css, jsx} from "@emotion/react";
 import {availableModules} from "./config.data";
 import {BrowserRouter, Route} from "react-router-dom";
+
+const MarketingApp = lazy(() => import("./components/external/MarketingApp"));
+const DashboardApp = lazy(() => import("./components/external/DashboardApp"));
 
 export default () => {
     return (
@@ -18,10 +21,14 @@ export default () => {
             <hr/>
             <div>
                 <Route path={'/marketing'}>
-                    <MarketingApp />
+                    <Suspense fallback={'Loading Marketing...'}>
+                        <MarketingApp />
+                    </Suspense>
                 </Route>
                 <Route path={'/dashboard'}>
-                <DashboardApp />
+                    <Suspense fallback={'Loading Dashboard...'}>
+                        <DashboardApp />
+                    </Suspense>
                 </Route>
             </div>
             </BrowserRouter>

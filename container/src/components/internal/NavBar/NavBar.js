@@ -10,8 +10,8 @@ const GlobalContainer = styled('div')`
 const NavBar = ({availableModules = []}) => {
     return (
         <GlobalContainer>
-            {availableModules.map(module => (
-                <NavBarItem title={module.name} link={module.link} />
+            {availableModules.map((module, index) => (
+                <NavBarItem key={index} title={module.name} link={module.link} />
             ))}
         </GlobalContainer>
     )
