@@ -19,10 +19,8 @@ const prodConfig = {
                 dashboard: `dashboard@${domain}/dashboard/latest/remoteEntry.js`,
                 // codeSchool: `codeSchool@${domain}/code-school/latest/remoteEntry.js`,
                 codeSchool: `promise new Promise(resolve => {
-      
-      const remoteUrlWithVersion = 'codeSchool@${domain}/code-school/latest/remoteEntry.js'
       const script = document.createElement('script')
-      script.src = remoteUrlWithVersion
+      script.src = '${domain}/code-school/latest/remoteEntry.js'
       script.onload = () => {
         // the injected script has loaded and is available on window
         // we can now resolve this Promise
