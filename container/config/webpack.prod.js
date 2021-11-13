@@ -20,7 +20,7 @@ const prodConfig = {
                 // codeSchool: `codeSchool@${domain}/code-school/latest/remoteEntry.js`,
                 codeSchool: `promise new Promise(resolve => {
       
-      const remoteUrlWithVersion = codeSchool@${domain}/code-school/latest/remoteEntry.js
+      const remoteUrlWithVersion = 'codeSchool@${domain}/code-school/latest/remoteEntry.js'
       const script = document.createElement('script')
       script.src = remoteUrlWithVersion
       script.onload = () => {
