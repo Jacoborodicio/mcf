@@ -25,10 +25,10 @@ const prodConfig = {
         // the injected script has loaded and is available on window
         // we can now resolve this Promise
         const proxy = {
-          get: (request) => window.app1.get(request),
+          get: (request) => window.codeSchool.get(request),
           init: (arg) => {
             try {
-              return window.app1.init(arg)
+              return window.codeSchool.init(arg)
             } catch(e) {
               console.log('remote container already initialized')
             }
