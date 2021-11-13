@@ -9,7 +9,7 @@ import {BrowserRouter, Route} from "react-router-dom";
 
 const MarketingApp = lazy(() => import("./components/external/MarketingApp"));
 const DashboardApp = lazy(() => import("./components/external/DashboardApp"));
-const SchoolCodeApp = lazy(() => import('./components/external/CodeSchoolApp'));
+const CodeSchoolApp = lazy(() => import('./components/external/CodeSchoolApp'));
 export default () => {
     return (
         <div>
@@ -31,8 +31,8 @@ export default () => {
                     </Suspense>
                 </Route>
                 <Route path={'/code-school'}>
-                    <Suspense fallback={'Loading School of Code'}>
-                        <SchoolCodeApp />
+                    <Suspense fallback={'Loading School of Code...'}>
+                        <CodeSchoolApp />
                     </Suspense>
                 </Route>
             </div>
