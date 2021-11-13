@@ -1,4 +1,4 @@
-import { mount } from './codeSchoolApp';
+import { mount } from 'codeSchoolApp';
 
 import React, {useRef, useEffect} from "react";
 
