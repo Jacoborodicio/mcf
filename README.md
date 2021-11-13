@@ -1,1 +1,2 @@
-https://mcf-dashboard.s3.eu-central-1.amazonaws.com/container/latest/index.html
+Current main access point at 12.11.2021
+https://d22m9j7s651ynb.cloudfront.net
