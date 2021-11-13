@@ -18,28 +18,6 @@ const prodConfig = {
                 marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
                 dashboard: `dashboard@${domain}/dashboard/latest/remoteEntry.js`,
                 code_school: `code_school@${domain}/code-school/latest/remoteEntry.js`,
-            /*    code_school: `promise new Promise(resolve => {
-      const script = document.createElement('script')
-      script.src = '${domain}/code-school/latest/remoteEntry.js'
-      script.onload = () => {
-        // the injected script has loaded and is available on window
-        // we can now resolve this Promise
-        const proxy = {
-          get: (request) => window.codeSchool.get(request),
-          init: (arg) => {
-            try {
-              return window.codeSchool.init(arg)
-            } catch(e) {
-              console.log('remote container already initialized')
-            }
-          }
-        }
-        resolve(proxy)
-      }
-      // inject this script with the src set to the versioned remoteEntry.js
-      document.head.appendChild(script);
-    })
-    `*/
             },
             shared: packageJson.dependencies,
         })

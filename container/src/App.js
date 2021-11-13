@@ -35,6 +35,9 @@ export default () => {
                         <CodeSchoolApp />
                     </Suspense>
                 </Route>
+                <Route path={'/'} exact>
+                    <p>This is another part of the container coming from router</p>
+                </Route>
             </div>
             </BrowserRouter>
         </div>
