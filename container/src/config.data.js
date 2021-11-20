@@ -1,19 +1,19 @@
 export const availableModules = [
     {
-        id: 1,
+        id: '01',
         moduleType: 'demo',
         name: 'Marketing',
         link: '/marketing'
     },
     {
-        id: 2,
+        id: '02',
         moduleType: 'demo',
         name: 'Dashboard',
         link: '/dashboard'
     },
     {
-        id: 3,
-        moduleType: 'demo',
+        id: '03',
+        moduleType: 'Code library',
         name: 'Code School',
         link: '/code-school'
     }
