@@ -1,24 +1,19 @@
 /** @jsx jsx **/
-import React, {lazy, Suspense} from 'react';
-//import MarketingApp from "./components/external/MarketingApp";
-//import DashboardApp from "./components/external/DashboardApp";
-import NavBar from "./components/internal/NavBar/NavBar";
+import React, {lazy, Suspense, useState} from 'react';
 import {css, jsx} from "@emotion/react";
+import NavBar from "./components/internal/NavBar/NavBar";
 import {availableModules} from "./config.data";
 import {BrowserRouter, Route} from "react-router-dom";
 
 const MarketingApp = lazy(() => import("./components/external/MarketingApp"));
 const DashboardApp = lazy(() => import("./components/external/DashboardApp"));
 const CodeSchoolApp = lazy(() => import('./components/external/CodeSchoolApp'));
-export default () => {
+const App = () => {
+    const [navOpen, setNavOpen] = useState(false);
     return (
         <div>
             <BrowserRouter>
-            <NavBar availableModules={availableModules} />
-            <div>
-                <h2>Hi! This is part of container (main)</h2>
-            </div>
-            <hr/>
+            <NavBar availableModules={availableModules} isOpen={navOpen} handleNavBar={() => setNavOpen(!navOpen)}/>
             <div>
                 <Route path={'/marketing'}>
                     <Suspense fallback={'Loading Marketing...'}>
@@ -43,3 +38,5 @@ export default () => {
         </div>
     )
 };
+
+export default App;

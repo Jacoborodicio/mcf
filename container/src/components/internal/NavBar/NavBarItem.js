@@ -29,6 +29,10 @@ const GlobalContainer = styled('div')`
         transition: all .5s;
         background-color: white;
         width: 100%;
+      },
+      & p:first-of-type {
+        transition: color .5s;
+        color: red;
       }
     },
   }
@@ -42,7 +46,7 @@ const Title = styled('p')`
 const Indicator = styled('p')`
   color: #FFF;
   font-weight: bold;
-  padding: .25rem 0rem;
+  padding: .25rem 0;
   text-decoration: none;
 `;
 
