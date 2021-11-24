@@ -12,19 +12,18 @@ const GlobalContainer = styled('div')`
   position: relative;
   span {
     position: absolute;
-    bottom: 0;
     left: 0;
     height: .1rem;
     transition: all .5s;
-    @media (max-width: 35rem) {
-      background-color: red;
+    background-color: red;
+    //@media (max-width: 35rem) {
       width: 1rem;
-      bottom: 1rem
-    }
+      bottom: 1rem;
+    //}
   }
   :hover {
     & p {color: #FFF;}
-    @media (max-width: 35rem) {
+    /*@media (max-width: 35rem) {*/
       & span {
         transition: all .5s;
         background-color: white;
@@ -35,7 +34,7 @@ const GlobalContainer = styled('div')`
         color: red;
       }
     },
-  }
+  //}
 `;
 
 const Title = styled('p')`

@@ -29,9 +29,11 @@ const App = () => {
                     <Suspense fallback={'Loading School of Code...'}>
                         <CodeSchoolApp />
                     </Suspense>
-                </Route>
-                <Route path={'/'} exact>
-                    <p>This is another part of the container coming from router</p>
+                </Route>*/}
+                <Route path={'/'} exact >
+                    <Suspense fallback={'Loading Dashboard...'}>
+                        <DashboardApp />
+                    </Suspense>
                 </Route>
             </div>
             </BrowserRouter>
