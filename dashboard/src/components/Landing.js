@@ -3,6 +3,7 @@ import React from 'react';
 import {css, jsx, keyframes} from "@emotion/react";
 import {styled} from "@mui/material";
 import {NavLink} from "react-router-dom";
+import {animated, useSpring, useTrail} from "@react-spring/web";
 
 const GlobalContainer = styled('div')`
   height: calc(100vh - 4rem);
@@ -54,8 +55,9 @@ const Balloon = styled('div')`
   height: 4rem;
   border-radius: 50%;
   background-color: red;
-  animation: ${bounce} normal 2s forwards;
+  animation: ${bounce} normal 1.2s forwards;
 `;
+
 
 const splash = keyframes`
     from {
@@ -63,11 +65,11 @@ const splash = keyframes`
       width: 0;
     }
   66% {
-    opacity: 0;
+    opacity: .4;
     width: 0;
   }
   to {
-    opacity: 1;
+    opacity: .8;
     width: 1000px;
   }
 `;
@@ -78,16 +80,51 @@ const Splash = styled('span')`
   background-color: white;
   bottom: 0;
   left: 100px;
-  animation: ${splash} 3s forwards;
+  animation: ${splash} 1.75s forwards;
 `;
 
+const Greeting = styled('animated.div')`
+  position: relative;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  color: rgb(66, 61, 63);
+  font-size: 5em;
+  font-weight: 800;
+  text-transform: uppercase;
+  will-change: transform, opacity;
+  overflow: hidden;
+`;
+
+const items = ["Wellcome", "Bienvenido", "Willkommen", "Benvido"];
+const config = { mass: 5, tension: 2000, friction: 200 };
 const Landing = props => {
     console.log("In Landing")
+    const trail = useTrail(items.length, {
+        config,
+        opacity: 1,
+        x: 20,
+        height: 80,
+        from: { opacity: 0, x: 20, height: 0 },
+        color: 'white'
+    });
     return (
         <GlobalContainer>
             <Balloon>
                 <Splash />
             </Balloon>
+            {trail.map(({ x, height, ...rest }, index) => (
+                <Greeting
+                    key={items[index]}
+                    className="trails-text"
+                    style={{
+                        ...rest,
+                        transform: () => `translate3d(0, ${x}px, 0)`
+                    }}
+                >
+                    <animated.div style={{ height }}>{items[index]}</animated.div>
+                </Greeting>
+            ))}
         </GlobalContainer>
     );
 }
