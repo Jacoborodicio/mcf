@@ -70,14 +70,14 @@ export default function Album() {
             <HeroButtons>
               <Grid container spacing={2} justifyContent="center">
                 <Grid item>
-                  <StyledLink to="/pricing">
+                  <StyledLink to="/prices">
                     <Button variant="contained" color="primary">
                       Pricing
                     </Button>
                   </StyledLink>
                 </Grid>
                 <Grid item>
-                  <StyledLink to="/pricing">
+                  <StyledLink to="/prices">
                     <Button variant="outlined" color="primary">
                       Pricing
                     </Button>

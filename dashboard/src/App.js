@@ -1,19 +1,19 @@
 import React, {lazy, Suspense} from 'react';
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route, Router} from "react-router-dom";
 import {CacheProvider} from "@emotion/react";
-import createCache from '@emotion/react';
+import createCache from '@emotion/cache';
 import {prefixer} from "stylis";
 const myCache = createCache({
-    prefix: 'D',
+    key: 'dashboard',
     stylesPlugins: [prefixer]
 })
 
 const Pricing = lazy(() => import('./components/Pricing'));
 const Landing = lazy(() => import('./components/Landing'));
-export default () => {
+export default ({history}) => {
     return (
         <CacheProvider value={myCache}>
-        <BrowserRouter>
+        <Router history={history} basename={'/dashboard'}>
             <Switch>
                 <Route exact path='/pricing'>
                     <Suspense fallback={''}>
@@ -26,7 +26,7 @@ export default () => {
                     </Suspense>
                 </Route>
             </Switch>
-        </BrowserRouter>
+        </Router>
         </CacheProvider>
     )
 };

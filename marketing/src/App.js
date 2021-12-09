@@ -1,7 +1,5 @@
-import React from 'react';
-import { Switch, Route, BrowserRouter} from "react-router-dom";
-import Landing from './components/Landing';
-import Pricing from "./components/Pricing";
+import React, {lazy, Suspense} from 'react';
+import {Switch, Route, Router} from "react-router-dom";
 import {CacheProvider} from "@emotion/react";
 import createCache from "@emotion/cache";
 import {prefixer} from "stylis";
@@ -9,16 +7,26 @@ const myCache = createCache({
     key: 'marketing',
     stylesPlugins: [prefixer]
 })
-export default () => {
+const Landing = lazy(() => import('./components/Landing'));
+const Prices = lazy(() => import('./components/Prices'));
+export default ({history}) => {
     return (
         <div>
         <CacheProvider value={myCache}>
-            <BrowserRouter>
+            <Router history={history}>
                 <Switch>
-                    <Route exact path='/pricing' component={Pricing} />
-                    <Route path='/' component={Landing} />
+                    <Route exact path='/'>
+                        <Suspense fallback={'Landing...'}>
+                            <Landing />
+                        </Suspense>
+                    </Route>
+                    <Route exact path={'/prices'}>
+                    <Suspense fallback={'Loading Pricing...'}>
+                        <Prices />
+                        </Suspense>
+                    </Route>
                 </Switch>
-            </BrowserRouter>
+            </Router>
         </CacheProvider>
     </div>
     )};

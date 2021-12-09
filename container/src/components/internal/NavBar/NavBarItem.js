@@ -50,11 +50,11 @@ const Indicator = styled('p')`
 `;
 
 
-const NavBarItem = ({title, link, id}) => {
+const NavBarItem = ({title, link, id, handleNavBar}) => {
     return (
         <NavLink css={css`
           text-decoration: none;
-        `} to={link}><GlobalContainer>
+        `} to={link} onClick={handleNavBar}><GlobalContainer>
         <Indicator>{id}</Indicator><Title>{title}</Title>
         <span/>
     </GlobalContainer></NavLink>)

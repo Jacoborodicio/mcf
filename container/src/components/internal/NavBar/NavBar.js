@@ -2,7 +2,7 @@
 import React from 'react';
 import {css, jsx} from "@emotion/react";
 import {styled} from "@mui/material";
-
+import {zIndex} from "../../../styles.config";
 import NavBarItem from "./NavBarItem";
 
 const NavButton = styled('button')`
@@ -55,6 +55,9 @@ const TopNav = styled('div')`
   width: 100%;
   height: 4rem;
   background-color: black;
+  position: sticky;
+  inset: 0 0;
+  z-index: ${zIndex.top};
 `;
 const GlobalContainer = styled('div')`
   display: flex;
@@ -80,7 +83,7 @@ const NavBar = ({isOpen, handleNavBar, availableModules = []}) => {
         <TopNav>
             <GlobalContainer isOpen={isOpen}>
                 {availableModules.map((module) => (
-                    <NavBarItem key={module.id} id={module.id} title={module.name} link={module.link}/>
+                    <NavBarItem key={module.id} id={module.id} title={module.name} handleNavBar={handleNavBar} link={module.link}/>
                 ))}
             </GlobalContainer>
             <NavButton isOpen={isOpen} onClick={handleNavBar}>
